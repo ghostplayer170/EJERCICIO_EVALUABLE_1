@@ -30,6 +30,6 @@ app
   .delete("/api/tierramedia/personajes/:id", deletePersonaje)
   .put("/api/tierramedia/personajes/:id", modifyPersonaje);
 
-app.listen(3001, () => {
-  console.log("Server listening on port 3001");
+app.listen(3003, () => {
+  console.log("Server listening on port 3003");
 });

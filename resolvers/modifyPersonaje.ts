@@ -19,7 +19,7 @@ const modifyPersonaje = async (req: Request, res: Response) => {
 
     const modifydPersonaje = await PersonajeModel.findOneAndUpdate(
       { id },
-      {name, raza, descripcion, habilidades },
+      { name, raza, descripcion, habilidades },
       { new: true }
     ).exec();
 
