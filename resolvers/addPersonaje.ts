@@ -1,5 +1,5 @@
 import { Request, Response } from "npm:express@4.18.2";
-import PersonajeModel from "../db/Personajes.ts";
+import PersonajeModel from "../db/Personaje.ts";
 
 const addPersonaje = async (req: Request, res: Response) => {
   try {
@@ -10,11 +10,9 @@ const addPersonaje = async (req: Request, res: Response) => {
     }
 
     const razas = ["Hobbits","Humanos","Elfos","Enanos","Ents"]
-
     const razaExists = razas.find((elem)=>raza===elem)
-
     if (razaExists===undefined) {
-      res.status(500).send("Personaje already exists");
+      res.status(500).send("Raza do not exists");
       return;
     }
 
@@ -22,6 +20,7 @@ const addPersonaje = async (req: Request, res: Response) => {
     await newPersonaje.save();
 
     res.status(200).send({
+      id: newPersonaje._id.String(),
       name: newPersonaje.name,
       raza: newPersonaje.raza,
       descripcion: newPersonaje.descripcion,
